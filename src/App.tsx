@@ -1,12 +1,8 @@
 import React from 'react';
-import Layout from './ui/Layout';
+import Layout from './components/Layout';
 
 function App() {
-	return (
-		<Layout>
-			Rock, Paper, Scissors game made with React.js & TypeScript !
-		</Layout>
-	);
+	return <Layout>Content</Layout>;
 }
 
 export default App;
