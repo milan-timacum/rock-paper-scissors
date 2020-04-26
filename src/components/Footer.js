@@ -36,7 +36,7 @@ const Footer = () => {
 						<img src={close} alt='close' />
 					</button>
 				</MHeader>
-				<img src={rulesImg} alt='rules' />
+				<RulesImg src={rulesImg} alt='rules' />
 			</RulesModal>
 		</Wrapper>
 	);
@@ -55,17 +55,22 @@ const Wrapper = styled.footer`
 const RulesModal = styled.footer`
 	background-color: white;
 	z-index: 999;
-	padding: 30px 30px 40px 30px;
+	padding: 30px 35px 40px 35px;
+	border-radius: 10px;
+	cursor: auto;
 
 	h2 {
 		font-size: 1.7rem;
 		color: #3c4161;
 		margin: 0;
 	}
-
 	&:focus {
 		outline: none;
 	}
+`;
+
+const RulesImg = styled.img`
+	margin: 0 15px;
 `;
 
 const MHeader = styled.div`
