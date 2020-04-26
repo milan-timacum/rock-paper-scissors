@@ -17,7 +17,7 @@ const Header = () => {
 
 const Wrapper = styled.header`
 	max-width: 900px;
-	margin: 0 auto;
+	margin: 0 auto 70px auto;
 `;
 
 const Row = styled.div`

@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
 
 	.row {
 		display: flex;
+		justify-content: center;
 	}
 
 	p {
