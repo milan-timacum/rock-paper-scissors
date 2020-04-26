@@ -1,14 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Modal from 'react-modal';
+
+import rulesImg from '../assets/images/image-rules.svg';
+import close from '../assets/images/icon-close.svg';
+
+Modal.setAppElement('#root');
 
 const Footer = () => {
-	return <Wrapper>Rules</Wrapper>;
+	const [modalIsOpen, setIsOpen] = useState(false);
+
+	function openModal() {
+		setIsOpen(true);
+	}
+
+	function closeModal() {
+		setIsOpen(false);
+	}
+
+	return (
+		<Wrapper>
+			<button type='button' onClick={openModal}>
+				Rules
+			</button>
+			<RulesModal
+				as={Modal}
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
+				contentLabel='Example Modal'
+				overlayClassName='overlay'
+			>
+				<MHeader>
+					<h2>RULES</h2>
+					<button onClick={closeModal}>
+						<img src={close} alt='close' />
+					</button>
+				</MHeader>
+				<img src={rulesImg} alt='rules' />
+			</RulesModal>
+		</Wrapper>
+	);
 };
 
 const Wrapper = styled.footer`
+	box-sizing: border-box;
+	width: 100%;
 	max-width: 1366px;
 	margin: 0 auto;
-	display: none;
+	padding: 0 20px;
+	display: flex;
+	justify-content: flex-end;
+`;
+
+const RulesModal = styled.footer`
+	background-color: white;
+	z-index: 999;
+	padding: 30px 30px 40px 30px;
+
+	h2 {
+		font-size: 1.7rem;
+		color: #3c4161;
+		margin: 0;
+	}
+
+	&:focus {
+		outline: none;
+	}
+`;
+
+const MHeader = styled.div`
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 50px;
+
+	button {
+		border: 0;
+		padding: 10px;
+		position: relative;
+		right: -10px;
+	}
 `;
 
 export default Footer;

@@ -16,6 +16,7 @@ const Header = () => {
 };
 
 const Wrapper = styled.header`
+	width: 100%;
 	max-width: 900px;
 	margin: 0 auto 70px auto;
 `;

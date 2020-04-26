@@ -31,11 +31,15 @@ const GlobalStyle = createGlobalStyle`
 
 	#root {
 		padding: 60px 0;
+		height: calc(100vh - 120px);
+		display: flex;
+		flex-direction: column;
 	}
 
 	.container {
 			max-width: 900px;
 			margin: 0 auto;
+			flex: 1;
 	}
 
 	.row {
@@ -46,6 +50,56 @@ const GlobalStyle = createGlobalStyle`
 	p {
 		margin: 0;
 	}
-	
+
+	button {
+		font-family: inherit;
+		font-size: 1.0625rem;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		background-color: transparent;
+		box-shadow: none;
+		border: 3px solid #858aa7;
+		border-radius: 7px;
+		color: white;
+		padding: 10px 40px;
+		cursor: pointer;
+		transition: opacity .25s;
+
+		&:hover {
+			opacity: .5;
+		}
+
+		&:focus{
+			outline: none;
+		}
+	}
+
+	.ReactModalPortal > * {
+		opacity: 0;
+	}
+
+	.overlay {
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0, .6);
+		z-index: 999;
+		cursor: pointer;
+		transition: opacity 200ms ease-in-out;
+
+		&.ReactModal__Overlay--after-open {
+				opacity: 1;
+		}
+
+		&.ReactModal__Overlay--before-close {
+				opacity: 0;
+		}
+	}
+
 `;
 export default Layout;
