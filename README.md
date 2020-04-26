@@ -4,6 +4,8 @@ Rock, Paper, Scissors game made with React.js & TypeScript !
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[Demo](https://rock-paper-scissors-phi.now.sh/)
+
 ## Available Scripts
 
 In the project directory, you can run:
