@@ -21,6 +21,8 @@ const Wrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	cursor: pointer;
+	transition: transform 0.25s;
 	z-index: 1;
 
 	&:before {
@@ -55,6 +57,15 @@ const Wrapper = styled.div`
 			props.color &&
 			'radial-gradient(circle,hsl(' + props.color.first + '), #212121)'};
 		box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
+		transition: box-shadow 0.25s;
+	}
+
+	&:hover {
+		transform: scale(1.05);
+
+		&:after {
+			box-shadow: 0 1px 35px rgba(0, 0, 0, 0.3);
+		}
 	}
 `;
 

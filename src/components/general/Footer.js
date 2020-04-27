@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 
-import rulesImg from '../assets/images/image-rules.svg';
-import close from '../assets/images/icon-close.svg';
+import rulesImg from '../../assets/images/image-rules.svg';
+import close from '../../assets/images/icon-close.svg';
 
 Modal.setAppElement('#root');
 

@@ -6,7 +6,7 @@ import Paper from './hands/Paper';
 import Scissors from './hands/Scissors';
 import triangle from '../assets/images/bg-triangle.svg';
 
-const Content = () => {
+const Picker = () => {
 	return (
 		<Wrapper>
 			<Rock />
@@ -37,4 +37,4 @@ const Wrapper = styled.div`
 	}
 `;
 
-export default Content;
+export default Picker;
