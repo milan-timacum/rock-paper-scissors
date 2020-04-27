@@ -39,6 +39,22 @@ const Wrapper = styled.div`
 				'), hsl(' +
 				props.color.second +
 				'))'};
+		z-index: 1;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: -8px;
+		left: 0;
+		margin: -25px;
+		border-radius: inherit;
+		background: ${(props) =>
+			props.color &&
+			'radial-gradient(circle,hsl(' + props.color.first + '), #212121)'};
+		box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
 	}
 `;
 
@@ -53,6 +69,7 @@ const Inner = styled.div`
 	box-shadow: 0 -9px #cdcfe0;
 	position: relative;
 	bottom: -5px;
+	z-index: 1;
 `;
 
 export default Circle;
