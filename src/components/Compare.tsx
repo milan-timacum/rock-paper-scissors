@@ -74,11 +74,11 @@ const Compare: React.FC<Props> = ({ value }) => {
 				<h2>You Picked</h2>
 				{(() => {
 					if (player === 'rock') {
-						return <Rock />;
+						return <Rock highlight={result === 'You Win' && true} />;
 					} else if (player === 'paper') {
-						return <Paper />;
+						return <Paper highlight={result === 'You Win' && true} />;
 					} else {
-						return <Scissors />;
+						return <Scissors highlight={result === 'You Win' && true} />;
 					}
 				})()}
 			</Wrapper>
@@ -92,11 +92,11 @@ const Compare: React.FC<Props> = ({ value }) => {
 				<h2>The house picked</h2>
 				{(() => {
 					if (house === 'rock') {
-						return <Rock />;
+						return <Rock highlight={result === 'You Lose' && true} />;
 					} else if (house === 'paper') {
-						return <Paper />;
+						return <Paper highlight={result === 'You Lose' && true} />;
 					} else {
-						return <Scissors />;
+						return <Scissors highlight={result === 'You Lose' && true} />;
 					}
 				})()}
 			</Wrapper>
@@ -114,6 +114,7 @@ const Wrapper = styled.div`
 
 	h2 {
 		margin-bottom: 65px;
+		z-index: 2;
 	}
 
 	.h-wrapper {
@@ -137,6 +138,7 @@ const WinLose = styled.div`
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: center;
+	z-index: 2;
 
 	p {
 		font-size: 3.4rem;

@@ -11,23 +11,29 @@ interface Props {
 	handIcon: string;
 	bg: Gradient;
 	name: string;
+	highlightClass?: boolean;
 }
 
 interface ColorProps {
 	color: any;
 }
 
-const Circle: React.FC<Props> = React.memo(({ handIcon, bg, name }) => {
-	const { setHandPick } = useContext(PickContext);
+const Circle: React.FC<Props> = React.memo(
+	({ handIcon, bg, name, highlightClass }) => {
+		const { setHandPick } = useContext(PickContext);
 
-	return (
-		<Wrapper color={bg} onClick={() => setHandPick({ hand: name })}>
-			<Inner>
-				<img src={handIcon} alt='hand-icon' />
-			</Inner>
-		</Wrapper>
-	);
-});
+		return (
+			<Wrapper color={bg} onClick={() => setHandPick({ hand: name })}>
+				<Inner>
+					<img src={handIcon} alt='hand-icon' />
+				</Inner>
+				<span className={'hide ' + (highlightClass ? 'highlight' : '')}></span>
+				<span className={'hide ' + (highlightClass ? 'highlight' : '')}></span>
+				<span className={'hide ' + (highlightClass ? 'highlight' : '')}></span>
+			</Wrapper>
+		);
+	}
+);
 
 const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 	width: 205px;
@@ -89,6 +95,30 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 
 		&:after {
 			box-shadow: 0 1px 35px rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	.hide {
+		display: none;
+
+		&.highlight {
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			transform: scale(2);
+			background: #2c3e61;
+			opacity: 0.1;
+			border-radius: 50%;
+			top: 4px;
+
+			&:nth-of-type(2) {
+				transform: scale(2.7);
+			}
+
+			&:nth-of-type(3) {
+				transform: scale(3.35);
+			}
 		}
 	}
 `;
