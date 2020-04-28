@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ScoreContext } from '../../context/ScoreContext';
 
 const Score = () => {
+	const { score } = useContext(ScoreContext);
+
 	return (
 		<Wrapper>
 			<Title>Score</Title>
-			<Counter>0</Counter>
+			<Counter>{score}</Counter>
 		</Wrapper>
 	);
 };

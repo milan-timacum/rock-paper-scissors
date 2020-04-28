@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { PickContext } from '../context/PickContext';
+import { ScoreContext } from '../context/ScoreContext';
 
 import Rock from './hands/Rock';
-import Empty from './hands/Empty';
+// import Empty from './hands/Empty';
 import Paper from './hands/Paper';
 import Scissors from './hands/Scissors';
 
@@ -12,59 +13,74 @@ interface Props {
 }
 
 const Compare: React.FC<Props> = ({ value }) => {
+	const [player, setPlayer] = useState<string | null>(null);
+	const [house, setHouse] = useState<string | null>(null);
+	const [result, setResult] = useState<string | null>(null);
+
+	const { score, setScore } = useContext(ScoreContext);
 	const { setHandPick } = useContext(PickContext);
 
-	// //Check picked hand
-	let checkHand;
-	if (value === 'rock') {
-		checkHand = <Rock />;
-	} else if (value === 'paper') {
-		checkHand = <Paper />;
-	} else {
-		checkHand = <Scissors />;
-	}
-
-	// Ai random hand generator
-	// Setting a Winner
-	// Updating score
-	let compHand;
-	let result;
-	const randomHand = Math.floor(Math.random() * 3);
-
-	if (randomHand === 1) {
-		compHand = <Rock />;
+	useEffect(() => {
+		//Set player hand
 		if (value === 'rock') {
-			result = 'Draw';
+			setPlayer('rock');
 		} else if (value === 'paper') {
-			result = 'You Win';
+			setPlayer('paper');
 		} else {
-			result = 'You Lose';
+			setPlayer('scissorss');
 		}
-	} else if (randomHand === 2) {
-		compHand = <Paper />;
-		if (value === 'paper') {
-			result = 'Draw';
-		} else if (value === 'rock') {
-			result = 'You Lose';
+
+		// Set house hand(random)
+		// Setting a Winner
+		// Updating score
+		const randomHand = Math.floor(Math.random() * 3);
+		if (randomHand === 1) {
+			setHouse('rock');
+			if (value === 'rock') {
+				setResult('Draw');
+			} else if (value === 'paper') {
+				setResult('You Win');
+				setScore(score + 1);
+			} else {
+				setResult('You Lose');
+			}
+		} else if (randomHand === 2) {
+			setHouse('paper');
+			if (value === 'paper') {
+				setResult('Draw');
+			} else if (value === 'rock') {
+				setResult('You Lose');
+			} else {
+				setResult('You Win');
+				setScore(score + 1);
+			}
 		} else {
-			result = 'You Win';
+			setHouse('scissors');
+			if (value === 'scissors') {
+				setResult('Draw');
+			} else if (value === 'paper') {
+				setResult('You Lose');
+			} else {
+				setResult('You Win');
+				setScore(score + 1);
+			}
 		}
-	} else {
-		compHand = <Scissors />;
-		if (value === 'scissors') {
-			result = 'Draw';
-		} else if (value === 'paper') {
-			result = 'You Lose';
-		} else {
-			result = 'You Win';
-		}
-	}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<React.Fragment>
 			<Wrapper>
 				<h2>You Picked</h2>
-				{checkHand}
+				{(() => {
+					if (player === 'rock') {
+						return <Rock />;
+					} else if (player === 'paper') {
+						return <Paper />;
+					} else {
+						return <Scissors />;
+					}
+				})()}
 			</Wrapper>
 			<WinLose>
 				<p>{result}</p>
@@ -74,7 +90,15 @@ const Compare: React.FC<Props> = ({ value }) => {
 			</WinLose>
 			<Wrapper>
 				<h2>The house picked</h2>
-				{compHand}
+				{(() => {
+					if (house === 'rock') {
+						return <Rock />;
+					} else if (house === 'paper') {
+						return <Paper />;
+					} else {
+						return <Scissors />;
+					}
+				})()}
 			</Wrapper>
 		</React.Fragment>
 	);
