@@ -5,7 +5,7 @@ const Score = () => {
 	return (
 		<Wrapper>
 			<Title>Score</Title>
-			<Counter>12</Counter>
+			<Counter>0</Counter>
 		</Wrapper>
 	);
 };

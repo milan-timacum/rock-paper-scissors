@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Rock from './hands/Rock';
@@ -7,6 +7,8 @@ import Scissors from './hands/Scissors';
 import triangle from '../assets/images/bg-triangle.svg';
 
 const Picker = () => {
+	const [handPick, sethandPick] = useState(false);
+
 	return (
 		<Wrapper>
 			<Rock />

@@ -1,7 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Circle = ({ handIcon, bg }) => {
+interface Gradient {
+	first: string;
+	second: string;
+}
+
+interface Props {
+	handIcon: string;
+	bg: Gradient;
+}
+
+interface ColorProps {
+	color: any;
+}
+
+const Circle: React.FC<Props> = ({ handIcon, bg }) => {
 	return (
 		<Wrapper color={bg}>
 			<Inner>
@@ -34,7 +48,7 @@ const Wrapper = styled.div.attrs({ className: 'h-wrapper' })`
 		left: 0;
 		margin: -25px;
 		border-radius: inherit;
-		background: ${(props) =>
+		background: ${(props: ColorProps) =>
 			props.color &&
 			'radial-gradient(circle,hsl(' +
 				props.color.first +
@@ -53,7 +67,7 @@ const Wrapper = styled.div.attrs({ className: 'h-wrapper' })`
 		left: 0;
 		margin: -25px;
 		border-radius: inherit;
-		background: ${(props) =>
+		background: ${(props: ColorProps) =>
 			props.color &&
 			'radial-gradient(circle,hsl(' + props.color.first + '), #212121)'};
 		box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);

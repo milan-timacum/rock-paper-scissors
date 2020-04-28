@@ -4,7 +4,11 @@ import { createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout = ({ children }) => {
+interface Props {
+	children: any;
+}
+
+const Layout: React.FC<Props> = ({ children }) => {
 	return (
 		<React.Fragment>
 			<GlobalStyle />

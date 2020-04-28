@@ -7,7 +7,7 @@ import Compare from './components/Compare';
 function App() {
 	return (
 		<Layout>
-			<Compare />
+			<Picker />
 		</Layout>
 	);
 }
