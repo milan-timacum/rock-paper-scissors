@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+import { PickContext } from '../context/PickContext';
+
 import Rock from './hands/Rock';
 import Empty from './hands/Empty';
 import Paper from './hands/Paper';
@@ -10,28 +12,21 @@ interface Props {
 }
 
 const Compare: React.FC<Props> = ({ value }) => {
-	// const [compareHands, setCompare] = useState<{
-	// 	player1: string | null;
-	// 	player2: string | null;
-	// }>({
-	// 	player1: null,
-	// 	player2: null,
-	// });
+	const { setHandPick } = useContext(PickContext);
 
 	// //Check picked hand
 	let checkHand;
 	if (value === 'rock') {
 		checkHand = <Rock />;
-		// setCompare({ player1: 'rock', player2: null });
 	} else if (value === 'paper') {
 		checkHand = <Paper />;
-		// setCompare({ player1: 'paper', player2: null });
 	} else {
 		checkHand = <Scissors />;
-		// setCompare({ player1: 'scissors', player2: null });
 	}
 
 	// Ai random hand generator
+	// Setting a Winner
+	// Updating score
 	let compHand;
 	let result;
 	const randomHand = Math.floor(Math.random() * 3);
@@ -47,7 +42,6 @@ const Compare: React.FC<Props> = ({ value }) => {
 		}
 	} else if (randomHand === 2) {
 		compHand = <Paper />;
-		console.log(value);
 		if (value === 'paper') {
 			result = 'Draw';
 		} else if (value === 'rock') {
@@ -74,8 +68,8 @@ const Compare: React.FC<Props> = ({ value }) => {
 			</Wrapper>
 			<WinLose>
 				<p>{result}</p>
-				<button type='button'>
-					<a href='/'>Play Again</a>
+				<button type='button' onClick={() => setHandPick({ hand: null })}>
+					Play Again
 				</button>
 			</WinLose>
 			<Wrapper>
@@ -132,12 +126,7 @@ const WinLose = styled.div`
 		border: 0;
 		margin-bottom: 40px;
 		padding: 0;
-
-		a {
-			padding: 15px 60px;
-			display: flex;
-			text-decoration: none;
-		}
+		padding: 15px 60px;
 	}
 `;
 
