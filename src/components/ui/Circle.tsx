@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { PickContext } from '../../context/PickContext';
 
 interface Gradient {
 	first: string;
@@ -9,25 +10,29 @@ interface Gradient {
 interface Props {
 	handIcon: string;
 	bg: Gradient;
+	name: string;
 }
 
 interface ColorProps {
 	color: any;
 }
 
-const Circle: React.FC<Props> = ({ handIcon, bg }) => {
+const Circle: React.FC<Props> = React.memo(({ handIcon, bg, name }) => {
+	const { setHandPick } = useContext(PickContext);
+
 	return (
-		<Wrapper color={bg}>
+		<Wrapper color={bg} onClick={() => setHandPick({ hand: name })}>
 			<Inner>
 				<img src={handIcon} alt='hand-icon' />
 			</Inner>
 		</Wrapper>
 	);
-};
+});
 
-const Wrapper = styled.div.attrs({ className: 'h-wrapper' })`
+const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 	width: 205px;
 	height: 205px;
+	padding: 0;
 	border: 25px solid transparent;
 	box-sizing: border-box;
 	border-radius: 50%;
@@ -38,6 +43,10 @@ const Wrapper = styled.div.attrs({ className: 'h-wrapper' })`
 	cursor: pointer;
 	transition: transform 0.25s;
 	z-index: 1;
+
+	&:nth-of-type(3) {
+		margin: auto;
+	}
 
 	&:before {
 		content: '';
@@ -76,6 +85,7 @@ const Wrapper = styled.div.attrs({ className: 'h-wrapper' })`
 
 	&:hover {
 		transform: scale(1.05);
+		opacity: 1;
 
 		&:after {
 			box-shadow: 0 1px 35px rgba(0, 0, 0, 0.3);
@@ -95,6 +105,7 @@ const Inner = styled.div`
 	position: relative;
 	bottom: -5px;
 	z-index: 1;
+	border: 0;
 `;
 
 export default Circle;

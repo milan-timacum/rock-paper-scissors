@@ -9,7 +9,7 @@ const gradient = {
 };
 
 const Scissors = () => {
-	return <Circle handIcon={IconScissors} bg={gradient} />;
+	return <Circle handIcon={IconScissors} bg={gradient} name={'scissors'} />;
 };
 
 export default Scissors;

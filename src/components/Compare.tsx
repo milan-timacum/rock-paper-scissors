@@ -1,22 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Rock from './hands/Rock';
 import Empty from './hands/Empty';
+import Paper from './hands/Paper';
+import Scissors from './hands/Scissors';
 
-const Compare = () => {
+interface Props {
+	value: string;
+}
+
+const Compare: React.FC<Props> = ({ value }) => {
+	// const [compareHands, setCompare] = useState<{
+	// 	player1: string | null;
+	// 	player2: string | null;
+	// }>({
+	// 	player1: null,
+	// 	player2: null,
+	// });
+
+	// //Check picked hand
+	let checkHand;
+	if (value === 'rock') {
+		checkHand = <Rock />;
+		// setCompare({ player1: 'rock', player2: null });
+	} else if (value === 'paper') {
+		checkHand = <Paper />;
+		// setCompare({ player1: 'paper', player2: null });
+	} else {
+		checkHand = <Scissors />;
+		// setCompare({ player1: 'scissors', player2: null });
+	}
+
+	// Ai random hand generator
+	let compHand;
+	let result;
+	const randomHand = Math.floor(Math.random() * 3);
+
+	if (randomHand === 1) {
+		compHand = <Rock />;
+		if (value === 'rock') {
+			result = 'Draw';
+		} else if (value === 'paper') {
+			result = 'You Win';
+		} else {
+			result = 'You Lose';
+		}
+	} else if (randomHand === 2) {
+		compHand = <Paper />;
+		console.log(value);
+		if (value === 'paper') {
+			result = 'Draw';
+		} else if (value === 'rock') {
+			result = 'You Lose';
+		} else {
+			result = 'You Win';
+		}
+	} else {
+		compHand = <Scissors />;
+		if (value === 'scissors') {
+			result = 'Draw';
+		} else if (value === 'paper') {
+			result = 'You Lose';
+		} else {
+			result = 'You Win';
+		}
+	}
+
 	return (
 		<React.Fragment>
 			<Wrapper>
 				<h2>You Picked</h2>
-				<Rock />
+				{checkHand}
 			</Wrapper>
 			<WinLose>
-				<p>You Win</p>
-				<button type='button'> Play Again</button>
+				<p>{result}</p>
+				<button type='button'>
+					<a href='/'>Play Again</a>
+				</button>
 			</WinLose>
 			<Wrapper>
 				<h2>The house picked</h2>
-				<Empty />
+				{compHand}
 			</Wrapper>
 		</React.Fragment>
 	);
@@ -37,6 +101,7 @@ const Wrapper = styled.div`
 	.h-wrapper {
 		transform: scale(1.4);
 		cursor: auto;
+		pointer-events: none;
 
 		&:hover {
 			transform: scale(1.4);
@@ -65,8 +130,14 @@ const WinLose = styled.div`
 		color: #e22851;
 		background: white;
 		border: 0;
-		padding: 15px 60px;
 		margin-bottom: 40px;
+		padding: 0;
+
+		a {
+			padding: 15px 60px;
+			display: flex;
+			text-decoration: none;
+		}
 	}
 `;
 
