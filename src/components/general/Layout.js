@@ -37,7 +37,8 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	.container {
-			max-width: 900px;
+			width: 100%;
+			max-width: 1200px;
 			margin: 0 auto;
 			flex: 1;
 	}

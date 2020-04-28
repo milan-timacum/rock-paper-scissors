@@ -11,7 +11,7 @@ const Circle = ({ handIcon, bg }) => {
 	);
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({ className: 'h-wrapper' })`
 	width: 205px;
 	height: 205px;
 	border: 25px solid transparent;
