@@ -28,6 +28,20 @@ const Wrapper = styled.div`
 	align-items: center;
 	position: relative;
 
+	@media (max-width: 1366px) {
+		transform: scale(0.8);
+		bottom: 30px;
+	}
+
+	@media (max-width: 525px) {
+		top: -80px;
+	}
+
+	@media (max-width: 340px) {
+		transform: scale(0.7);
+		top: -125px;
+	}
+
 	&:after {
 		position: absolute;
 		content: '';
@@ -36,11 +50,10 @@ const Wrapper = styled.div`
 		background-size: 75%;
 		width: 100%;
 		height: 100%;
-	}
 
-	@media (max-width: 1366px) {
-		transform: scale(0.8);
-		bottom: 30px;
+		@media (max-width: 525px) {
+			background-size: 100%;
+		}
 	}
 `;
 

@@ -51,6 +51,10 @@ const BtnWrap = styled.div`
 	&:nth-of-type(1) {
 		width: 100%;
 		margin: 0;
+
+		@media (max-width: 525px) {
+			bottom: -30px;
+		}
 	}
 
 	&:nth-of-type(2),
@@ -73,10 +77,20 @@ const BtnWrap = styled.div`
 
 	&:nth-of-type(4) {
 		left: 10px;
+
+		@media (max-width: 525px) {
+			top: -50px;
+			left: -10px;
+		}
 	}
 
 	&:nth-of-type(5) {
 		right: 10px;
+
+		@media (max-width: 525px) {
+			top: -50px;
+			right: -10px;
+		}
 	}
 `;
 
@@ -93,6 +107,10 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 	cursor: pointer;
 	transition: transform 0.25s;
 	z-index: 1;
+
+	@media (max-width: 525px) {
+		width: 113px;
+	}
 
 	&:before {
 		content: '';
@@ -176,6 +194,11 @@ const Inner = styled.div`
 	bottom: -5px;
 	z-index: 1;
 	border: 0;
+
+	@media (max-width: 525px) {
+		width: 115px;
+		height: 103px;
+	}
 `;
 
 export default Circle;

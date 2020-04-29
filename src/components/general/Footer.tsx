@@ -50,6 +50,11 @@ const Wrapper = styled.footer`
 	padding: 0 20px;
 	display: flex;
 	justify-content: flex-end;
+
+	@media (max-width: 768px) {
+		padding: 0 30px;
+		justify-content: center;
+	}
 `;
 
 const RulesModal = styled.footer`
@@ -64,8 +69,17 @@ const RulesModal = styled.footer`
 		color: #3c4161;
 		margin: 0;
 	}
+
 	&:focus {
 		outline: none;
+	}
+
+	@media (max-width: 525px) {
+		transform: scale(0.8);
+	}
+
+	@media (max-width: 340px) {
+		transform: scale(0.7);
 	}
 `;
 

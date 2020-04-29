@@ -41,21 +41,40 @@ const GlobalStyle = createGlobalStyle`
 		flex-direction: column;
 
 		@media (max-width: 1366px) {
-			padding: 20px 0;
-			height: calc(100vh - 40px);
+			padding: 30px 0;
+			height: calc(100vh - 60px);
 		}
 	}
 
 	.container {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-			flex: 1;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		flex: 1;
+
+		@media (max-width: 525px) {
+			max-height: 430px;
+		}
+
+
+		@media (max-width: 340px) {
+			max-height: 350px;
+		}
 	}
 
 	.row {
 		display: flex;
 		justify-content: center;
+
+		@media (max-width: 768px) {
+			padding: 0 30px;
+			box-sizing: border-box;
+		}
+
+		@media (max-width: 525px) {
+			padding: 0 20px;
+			flex-wrap: wrap;
+		}
 	}
 
 	p {
@@ -75,6 +94,13 @@ const GlobalStyle = createGlobalStyle`
 		padding: 10px 40px;
 		cursor: pointer;
 		transition: opacity .25s;
+
+		@media (max-width: 525px) {
+			border: 2px solid #858aa7;
+			font-size: .875rem;
+			padding: 8px 40px;
+
+		}
 
 		&:hover {
 			opacity: .5;

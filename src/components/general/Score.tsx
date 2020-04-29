@@ -21,16 +21,30 @@ const Wrapper = styled.div`
 	padding: 10px 30px;
 	background-color: white;
 	border-radius: 10px;
+
+	@media (max-width: 525px) {
+		padding: 10px 20px;
+		border-radius: 5px;
+	}
 `;
 
 const Title = styled.p`
 	color: #3843ad;
+
+	@media (max-width: 525px) {
+		font-size: 0.675rem;
+	}
 `;
 
 const Counter = styled.p`
 	color: #545067;
 	font-size: 4rem;
 	font-weight: 700;
+
+	@media (max-width: 525px) {
+		font-size: 2.5rem;
+		line-height: 37px;
+	}
 `;
 
 export default Score;
