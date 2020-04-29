@@ -47,6 +47,7 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else if (value === 'paper') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else if (value === 'scissors') {
 				setResult('You Lose');
 			} else if (value === 'lizard') {
@@ -54,6 +55,7 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			}
 		} else if (randomHand === 2) {
 			setHouse('paper');
@@ -64,9 +66,11 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else if (value === 'scissors') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else if (value === 'lizard') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else {
 				setResult('You Lose');
 			}
@@ -79,11 +83,13 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else if (value === 'rock') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else if (value === 'lizard') {
 				setResult('You Lose');
 			} else {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			}
 		} else if (randomHand === 4) {
 			setHouse('lizard');
@@ -92,11 +98,13 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else if (value === 'rock') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else if (value === 'paper') {
 				setResult('You Lose');
 			} else if (value === 'scissors') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else {
 				setResult('You Lose');
 			}
@@ -109,11 +117,13 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else if (value === 'paper') {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			} else if (value === 'scissors') {
 				setResult('You Lose');
 			} else {
 				setResult('You Win');
 				setScore(score + 1);
+				localStorage.setItem('score', JSON.stringify(score + 1));
 			}
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -141,6 +151,17 @@ const Compare: React.FC<Props> = ({ value }) => {
 				<p>{result}</p>
 				<button type='button' onClick={() => setHandPick({ hand: null })}>
 					Play Again
+				</button>
+				<span>or</span>
+				<button
+					type='button'
+					className='reset'
+					onClick={() => {
+						setHandPick({ hand: null });
+						setScore(0);
+					}}
+				>
+					Reset score
 				</button>
 			</WinLose>
 			<Wrapper>
@@ -198,10 +219,15 @@ const WinLose = styled.div`
 	justify-content: flex-end;
 	align-items: center;
 	z-index: 2;
-
+	position: relative;
+	bottom: -60px;
 	p {
 		font-size: 3.4rem;
 		font-weight: 700;
+		margin-bottom: 20px;
+	}
+
+	span {
 		margin-bottom: 20px;
 	}
 
@@ -209,9 +235,24 @@ const WinLose = styled.div`
 		color: #e22851;
 		background: white;
 		border: 0;
-		margin-bottom: 40px;
+		margin-bottom: 20px;
 		padding: 0;
 		padding: 15px 60px;
+
+		&.reset {
+			color: white;
+			background: transparent;
+			padding: 0;
+			margin: 0;
+			text-decoration: underline;
+			font-size: 12px;
+			letter-spacing: 2px;
+			opacity: 0.5;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
 	}
 `;
 

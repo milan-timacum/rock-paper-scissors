@@ -7,7 +7,10 @@ import { PickContext } from './context/PickContext';
 import { ScoreContext } from './context/ScoreContext';
 
 function App() {
-	const [score, setScore] = useState<number>(0);
+	const get: any = window.localStorage.getItem('score');
+	const storageScore = JSON.parse(get);
+
+	const [score, setScore] = useState<number>(storageScore ? storageScore : 0);
 	const [handPick, setHandPick] = useState<{ hand: string | null }>({
 		hand: null,
 	});
