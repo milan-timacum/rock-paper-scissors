@@ -4,36 +4,43 @@ import styled from 'styled-components';
 import Rock from './hands/Rock';
 import Paper from './hands/Paper';
 import Scissors from './hands/Scissors';
-import triangle from '../assets/images/bg-triangle.svg';
+import Lizard from './hands/Lizard';
+import Spock from './hands/Spock';
+
+import pentagon from '../assets/images/bg-pentagon.svg';
 
 const Picker = () => {
 	return (
 		<Wrapper>
-			<Rock />
 			<Scissors />
+			<Spock />
 			<Paper />
+			<Lizard />
+			<Rock />
 		</Wrapper>
 	);
 };
 
 const Wrapper = styled.div`
-	width: 480px;
+	height: 575px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	align-items: center;
 	position: relative;
-
-	& > div:nth-of-type(3) {
-		margin: 25px auto 0 auto;
-	}
 
 	&:after {
 		position: absolute;
 		content: '';
-		background: url(${triangle}) no-repeat;
+		background: url(${pentagon}) no-repeat;
 		background-position: center;
+		background-size: 75%;
 		width: 100%;
 		height: 100%;
+	}
+
+	@media (max-width: 1366px) {
+		transform: scale(0.8);
+		bottom: 30px;
 	}
 `;
 

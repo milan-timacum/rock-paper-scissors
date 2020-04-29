@@ -7,6 +7,8 @@ import Rock from './hands/Rock';
 // import Empty from './hands/Empty';
 import Paper from './hands/Paper';
 import Scissors from './hands/Scissors';
+import Lizard from './hands/Lizard';
+import Spock from './hands/Spock';
 
 interface Props {
 	value: string;
@@ -26,14 +28,18 @@ const Compare: React.FC<Props> = ({ value }) => {
 			setPlayer('rock');
 		} else if (value === 'paper') {
 			setPlayer('paper');
+		} else if (value === 'scissors') {
+			setPlayer('scissors');
+		} else if (value === 'lizard') {
+			setPlayer('lizard');
 		} else {
-			setPlayer('scissorss');
+			setPlayer('spock');
 		}
 
 		// Set house hand(random)
 		// Setting a Winner
 		// Updating score
-		const randomHand = Math.floor(Math.random() * 3);
+		const randomHand = Math.floor(Math.random() * 5) + 1;
 		if (randomHand === 1) {
 			setHouse('rock');
 			if (value === 'rock') {
@@ -41,8 +47,13 @@ const Compare: React.FC<Props> = ({ value }) => {
 			} else if (value === 'paper') {
 				setResult('You Win');
 				setScore(score + 1);
-			} else {
+			} else if (value === 'scissors') {
 				setResult('You Lose');
+			} else if (value === 'lizard') {
+				setResult('You Lose');
+			} else {
+				setResult('You Win');
+				setScore(score + 1);
 			}
 		} else if (randomHand === 2) {
 			setHouse('paper');
@@ -50,15 +61,55 @@ const Compare: React.FC<Props> = ({ value }) => {
 				setResult('Draw');
 			} else if (value === 'rock') {
 				setResult('You Lose');
-			} else {
+			} else if (value === 'scissors') {
 				setResult('You Win');
 				setScore(score + 1);
+			} else if (value === 'lizard') {
+				setResult('You Win');
+				setScore(score + 1);
+			} else {
+				setResult('You Lose');
 			}
-		} else {
+		} else if (randomHand === 3) {
 			setHouse('scissors');
 			if (value === 'scissors') {
 				setResult('Draw');
 			} else if (value === 'paper') {
+				setResult('You Lose');
+			} else if (value === 'rock') {
+				setResult('You Win');
+				setScore(score + 1);
+			} else if (value === 'lizard') {
+				setResult('You Lose');
+			} else {
+				setResult('You Win');
+				setScore(score + 1);
+			}
+		} else if (randomHand === 4) {
+			setHouse('lizard');
+			if (value === 'lizard') {
+				setResult('Draw');
+			} else if (value === 'rock') {
+				setResult('You Win');
+				setScore(score + 1);
+			} else if (value === 'paper') {
+				setResult('You Lose');
+			} else if (value === 'scissors') {
+				setResult('You Win');
+				setScore(score + 1);
+			} else {
+				setResult('You Lose');
+			}
+		} else {
+			setHouse('spock');
+			if (value === 'spock') {
+				setResult('Draw');
+			} else if (value === 'rock') {
+				setResult('You Lose');
+			} else if (value === 'paper') {
+				setResult('You Win');
+				setScore(score + 1);
+			} else if (value === 'scissors') {
 				setResult('You Lose');
 			} else {
 				setResult('You Win');
@@ -77,8 +128,12 @@ const Compare: React.FC<Props> = ({ value }) => {
 						return <Rock highlight={result === 'You Win' && true} />;
 					} else if (player === 'paper') {
 						return <Paper highlight={result === 'You Win' && true} />;
-					} else {
+					} else if (player === 'scissors') {
 						return <Scissors highlight={result === 'You Win' && true} />;
+					} else if (player === 'lizard') {
+						return <Lizard highlight={result === 'You Win' && true} />;
+					} else {
+						return <Spock highlight={result === 'You Win' && true} />;
 					}
 				})()}
 			</Wrapper>
@@ -95,8 +150,12 @@ const Compare: React.FC<Props> = ({ value }) => {
 						return <Rock highlight={result === 'You Lose' && true} />;
 					} else if (house === 'paper') {
 						return <Paper highlight={result === 'You Lose' && true} />;
-					} else {
+					} else if (house === 'scissors') {
 						return <Scissors highlight={result === 'You Lose' && true} />;
+					} else if (house === 'lizard') {
+						return <Lizard highlight={result === 'You Lose' && true} />;
+					} else {
+						return <Spock highlight={result === 'You Lose' && true} />;
 					}
 				})()}
 			</Wrapper>
@@ -118,12 +177,12 @@ const Wrapper = styled.div`
 	}
 
 	.h-wrapper {
-		transform: scale(1.4);
+		transform: scale(1.5);
 		cursor: auto;
 		pointer-events: none;
 
 		&:hover {
-			transform: scale(1.4);
+			transform: scale(1.5);
 
 			&:after {
 				box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);

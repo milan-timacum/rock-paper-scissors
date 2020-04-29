@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import logo from '../../assets/images/logo.svg';
+import logo from '../../assets/images/logo-bonus.svg';
 import Score from './Score';
 
 const Header = () => {
@@ -19,6 +19,10 @@ const Wrapper = styled.header`
 	width: 100%;
 	max-width: 900px;
 	margin: 0 auto 70px auto;
+
+	@media (max-width: 1366px) {
+		margin: 0 auto 30px auto;
+	}
 `;
 
 const Row = styled.div`
@@ -29,10 +33,18 @@ const Row = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	@media (max-width: 1366px) {
+		padding: 15px 20px;
+	}
 `;
 
 const Image = styled.img`
 	height: 100%;
+
+	@media (max-width: 1366px) {
+		width: 100px;
+	}
 `;
 
 export default Header;

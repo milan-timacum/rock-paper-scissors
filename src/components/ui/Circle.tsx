@@ -23,23 +23,67 @@ const Circle: React.FC<Props> = React.memo(
 		const { setHandPick } = useContext(PickContext);
 
 		return (
-			<Wrapper color={bg} onClick={() => setHandPick({ hand: name })}>
-				<Inner>
-					<img src={handIcon} alt='hand-icon' />
-				</Inner>
-				<span className={'hide ' + (highlightClass ? 'highlight' : '')}></span>
-				<span className={'hide ' + (highlightClass ? 'highlight' : '')}></span>
-				<span className={'hide ' + (highlightClass ? 'highlight' : '')}></span>
-			</Wrapper>
+			<BtnWrap>
+				<Wrapper color={bg} onClick={() => setHandPick({ hand: name })}>
+					<Inner>
+						<img src={handIcon} alt='hand-icon' />
+					</Inner>
+					<span
+						className={'hide ' + (highlightClass ? 'highlight' : '')}
+					></span>
+					<span
+						className={'hide ' + (highlightClass ? 'highlight' : '')}
+					></span>
+					<span
+						className={'hide ' + (highlightClass ? 'highlight' : '')}
+					></span>
+				</Wrapper>
+			</BtnWrap>
 		);
 	}
 );
 
+const BtnWrap = styled.div`
+	display: flex;
+	justify-content: center;
+	position: relative;
+
+	&:nth-of-type(1) {
+		width: 100%;
+		margin: 0;
+	}
+
+	&:nth-of-type(2),
+	&:nth-of-type(3),
+	&:nth-of-type(4),
+	&:nth-of-type(5) {
+		max-width: 50%;
+		flex-basis: 50%;
+	}
+
+	&:nth-of-type(2) {
+		top: -40px;
+		left: -50px;
+	}
+
+	&:nth-of-type(3) {
+		top: -40px;
+		right: -50px;
+	}
+
+	&:nth-of-type(4) {
+		left: 10px;
+	}
+
+	&:nth-of-type(5) {
+		right: 10px;
+	}
+`;
+
 const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
-	width: 205px;
-	height: 205px;
+	width: 123px;
 	padding: 0;
-	border: 25px solid transparent;
+	border: 5px solid transparent;
 	box-sizing: border-box;
 	border-radius: 50%;
 	display: flex;
@@ -50,10 +94,6 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 	transition: transform 0.25s;
 	z-index: 1;
 
-	&:nth-of-type(3) {
-		margin: auto;
-	}
-
 	&:before {
 		content: '';
 		position: absolute;
@@ -61,7 +101,7 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 		right: 0;
 		bottom: 0;
 		left: 0;
-		margin: -25px;
+		margin: -20px;
 		border-radius: inherit;
 		background: ${(props: ColorProps) =>
 			props.color &&
@@ -80,7 +120,7 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 		right: 0;
 		bottom: -8px;
 		left: 0;
-		margin: -25px;
+		margin: -20px;
 		border-radius: inherit;
 		background: ${(props: ColorProps) =>
 			props.color &&
@@ -124,8 +164,8 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 `;
 
 const Inner = styled.div`
-	width: 155px;
-	height: 149px;
+	width: 115px;
+	height: 109px;
 	background-color: white;
 	display: flex;
 	justify-content: center;

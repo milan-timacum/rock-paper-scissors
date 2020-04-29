@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'react-modal';
 
-import rulesImg from '../../assets/images/image-rules.svg';
+import rulesImg from '../../assets/images/image-rules-bonus.svg';
 import close from '../../assets/images/icon-close.svg';
 
 Modal.setAppElement('#root');
@@ -70,7 +70,7 @@ const RulesModal = styled.footer`
 `;
 
 const RulesImg = styled.img`
-	margin: 0 15px;
+	margin: 0 15px 30px 15px;
 `;
 
 const MHeader = styled.div`

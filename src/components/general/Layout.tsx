@@ -39,6 +39,11 @@ const GlobalStyle = createGlobalStyle`
 		height: calc(100vh - 120px);
 		display: flex;
 		flex-direction: column;
+
+		@media (max-width: 1366px) {
+			padding: 20px 0;
+			height: calc(100vh - 40px);
+		}
 	}
 
 	.container {
