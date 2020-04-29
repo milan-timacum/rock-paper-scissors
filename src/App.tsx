@@ -32,7 +32,7 @@ function App() {
 					{handPick.hand === null ? (
 						<Picker />
 					) : (
-						<Compare value={handPick.hand} />
+						<Compare playerHand={handPick.hand} />
 					)}
 				</PickContext.Provider>
 			</Layout>
