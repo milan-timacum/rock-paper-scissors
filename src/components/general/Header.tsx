@@ -18,10 +18,10 @@ const Header = () => {
 const Wrapper = styled.header`
 	width: 100%;
 	max-width: 900px;
-	margin: 0 auto 70px auto;
+	margin: 60px auto 70px auto;
 
 	@media (max-width: 1366px) {
-		margin: 0 auto 30px auto;
+		margin: 30px auto 0 auto;
 	}
 
 	@media (max-width: 768px) {

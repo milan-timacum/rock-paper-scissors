@@ -191,10 +191,12 @@ const Wrapper = styled.div`
 
 		&:nth-of-type(1) {
 			order: 0;
+			margin-top: 30px;
 		}
 
 		&:nth-of-type(3) {
 			order: 1;
+			margin-top: 30px;
 		}
 
 		h2 {
@@ -266,7 +268,9 @@ const WinLose = styled.div`
 
 	@media (max-width: 525px) {
 		order: 2;
-		top: 60px;
+		top: 0;
+		bottom: 0;
+		margin-top: 30px;
 
 		p {
 			font-size: 2.5rem;

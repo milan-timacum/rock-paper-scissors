@@ -1,5 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import Div100vh from 'react-div-100vh';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -12,11 +13,13 @@ const Layout: React.FC<Props> = ({ children }) => {
 	return (
 		<React.Fragment>
 			<GlobalStyle />
-			<Header />
-			<main className='container'>
-				<div className='row'>{children}</div>
-			</main>
-			<Footer />
+			<Div100vh>
+				<Header />
+				<main className='container'>
+					<div className='row'>{children}</div>
+				</main>
+				<Footer />
+			</Div100vh>
 		</React.Fragment>
 	);
 };
@@ -34,17 +37,6 @@ const GlobalStyle = createGlobalStyle`
 		overflow: hidden;
 	}
 
-	#root {
-		padding: 60px 0;
-		height: calc(100vh - 120px);
-		display: flex;
-		flex-direction: column;
-
-		@media (max-width: 1366px) {
-			padding: 30px 0;
-			height: calc(100vh - 60px);
-		}
-	}
 
 	.container {
 		width: 100%;
@@ -53,13 +45,9 @@ const GlobalStyle = createGlobalStyle`
 		flex: 1;
 
 		@media (max-width: 525px) {
-			max-height: 430px;
+			margin-top: 20px;
 		}
 
-
-		@media (max-width: 340px) {
-			max-height: 350px;
-		}
 	}
 
 	.row {
