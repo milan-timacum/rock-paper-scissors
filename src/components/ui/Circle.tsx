@@ -189,7 +189,7 @@ const Inner = styled.div`
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
-	box-shadow: 0 -9px #cdcfe0;
+	box-shadow: 0 -7px #cdcfe0;
 	position: relative;
 	bottom: -5px;
 	z-index: 1;
