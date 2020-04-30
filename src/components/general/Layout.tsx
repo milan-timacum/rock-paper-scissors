@@ -13,7 +13,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 	return (
 		<React.Fragment>
 			<GlobalStyle />
-			<Div100vh>
+			<Div100vh className='full'>
 				<Header />
 				<main className='container'>
 					<div className='row'>{children}</div>
@@ -44,8 +44,8 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0 auto;
 		flex: 1;
 
-		@media (max-width: 525px) {
-			/* margin-top: 20px; */
+		@media (min-width: 1366px) {
+			/* height: 60vh; */
 		}
 
 	}
@@ -126,6 +126,11 @@ const GlobalStyle = createGlobalStyle`
 		&.ReactModal__Overlay--before-close {
 				opacity: 0;
 		}
+	}
+
+	.full {
+		display: flex;
+		flex-direction: column;
 	}
 
 `;

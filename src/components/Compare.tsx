@@ -152,11 +152,10 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	height: 400px;
 	z-index: 2;
 
 	h2 {
-		margin-bottom: 65px;
+		margin-bottom: 165px;
 		z-index: 2;
 	}
 
