@@ -50,17 +50,10 @@ const Wrapper = styled.footer`
 	padding: 0 20px;
 	display: flex;
 	justify-content: flex-end;
+	position: relative;
 
 	@media (max-width: 1366px) {
-		position: fixed;
-		bottom: 30px;
-		right: 60px;
-	}
-
-	@media (max-width: 768px) {
-		padding: 0 30px;
 		justify-content: center;
-		right: 0;
 	}
 `;
 

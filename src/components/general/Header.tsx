@@ -25,7 +25,8 @@ const Wrapper = styled.header`
 	}
 
 	@media (max-width: 768px) {
-		padding: 0 30px;
+		margin: 0;
+		padding: 15px 30px 0 30px;
 		box-sizing: border-box;
 	}
 `;
@@ -44,8 +45,9 @@ const Row = styled.div`
 	}
 
 	@media (max-width: 525px) {
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		padding: 10px;
+		border: 2px solid rgba(255, 255, 255, 0.2);
+		border-radius: 5px;
+		padding: 7px;
 	}
 `;
 
@@ -57,7 +59,7 @@ const Image = styled.img`
 	}
 
 	@media (max-width: 525px) {
-		width: 60px;
+		width: 50px;
 	}
 `;
 

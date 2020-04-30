@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 	border-radius: 10px;
 
 	@media (max-width: 525px) {
-		padding: 10px 20px;
+		padding: 5px 10px;
 		border-radius: 5px;
 	}
 `;
@@ -32,7 +32,7 @@ const Title = styled.p`
 	color: #3843ad;
 
 	@media (max-width: 525px) {
-		font-size: 0.675rem;
+		font-size: 10px;
 	}
 `;
 

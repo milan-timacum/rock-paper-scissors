@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 	}
 
 	@media (max-width: 1366px) {
-		transform: scale(0.8);
+		transform: scale(0.7);
 		bottom: 30px;
 	}
 
@@ -49,11 +49,6 @@ const Wrapper = styled.div`
 		&:after {
 			background-size: 100%;
 		}
-	}
-
-	@media (max-width: 340px) {
-		transform: scale(0.7);
-		top: -125px;
 	}
 `;
 

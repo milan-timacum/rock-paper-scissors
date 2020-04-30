@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
 		flex: 1;
 
 		@media (max-width: 525px) {
-			margin-top: 20px;
+			/* margin-top: 20px; */
 		}
 
 	}
@@ -62,6 +62,8 @@ const GlobalStyle = createGlobalStyle`
 		@media (max-width: 525px) {
 			padding: 0 20px;
 			flex-wrap: wrap;
+			max-height: 370px;
+			margin-bottom: 30px;
 		}
 	}
 
@@ -84,9 +86,9 @@ const GlobalStyle = createGlobalStyle`
 		transition: opacity .25s;
 
 		@media (max-width: 525px) {
-			border: 2px solid #858aa7;
+			border: 1px solid #858aa7;
 			font-size: .875rem;
-			padding: 8px 40px;
+			padding: 6px 30px;
 
 		}
 

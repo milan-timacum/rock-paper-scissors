@@ -153,6 +153,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	height: 400px;
+	z-index: 2;
 
 	h2 {
 		margin-bottom: 65px;
@@ -270,7 +271,7 @@ const WinLose = styled.div`
 		order: 2;
 		top: 0;
 		bottom: 0;
-		margin-top: 30px;
+		margin-top: 50px;
 
 		p {
 			font-size: 2.5rem;
@@ -288,7 +289,7 @@ const WinLose = styled.div`
 	}
 
 	@media (max-width: 340px) {
-		top: 20px;
+		margin-top: 20px;
 	}
 `;
 
