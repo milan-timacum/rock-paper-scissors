@@ -14,8 +14,8 @@ interface Props {
 	highlightClass?: boolean;
 }
 
-interface ColorProps {
-	color: any;
+interface BgProps {
+	bgProps: any;
 }
 
 const Circle: React.FC<Props> = React.memo(
@@ -24,7 +24,7 @@ const Circle: React.FC<Props> = React.memo(
 
 		return (
 			<BtnWrap>
-				<Wrapper color={bg} onClick={() => setHandPick({ hand: name })}>
+				<Wrapper bgProps={bg} onClick={() => setHandPick({ hand: name })}>
 					<Inner>
 						<img src={handIcon} alt='hand-icon' />
 					</Inner>
@@ -121,12 +121,12 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 		left: 0;
 		margin: -20px;
 		border-radius: inherit;
-		background: ${(props: ColorProps) =>
-			props.color &&
+		background: ${(props: BgProps) =>
+			props.bgProps &&
 			'radial-gradient(circle,hsl(' +
-				props.color.first +
+				props.bgProps.first +
 				'), hsl(' +
-				props.color.second +
+				props.bgProps.second +
 				'))'};
 		z-index: 1;
 	}
@@ -140,9 +140,9 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 		left: 0;
 		margin: -20px;
 		border-radius: inherit;
-		background: ${(props: ColorProps) =>
-			props.color &&
-			'radial-gradient(circle,hsl(' + props.color.first + '), #212121)'};
+		background: ${(props: BgProps) =>
+			props.bgProps &&
+			'radial-gradient(circle,hsl(' + props.bgProps.first + '), #212121)'};
 		box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3);
 		transition: box-shadow 0.25s;
 	}
@@ -181,7 +181,7 @@ const Wrapper = styled.button.attrs({ className: 'h-wrapper' })`
 	}
 `;
 
-const Inner = styled.div`
+const Inner = styled.span`
 	width: 115px;
 	height: 109px;
 	background-color: white;
